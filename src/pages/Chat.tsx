@@ -167,7 +167,8 @@ const Chat = () => {
                 {VOICE_ROOMS.map((room) => (
                   <div
                     key={room}
-                    className="flex items-center gap-1.5 px-2 py-1.5 rounded text-[#8e9297] hover:text-[#dcddde] hover:bg-[#393c43] cursor-pointer"
+                    onClick={() => navigate(`/voice/${encodeURIComponent(room)}`)}
+                    className="flex items-center gap-1.5 px-2 py-1.5 rounded text-[#8e9297] hover:text-[#3ba55c] hover:bg-[#393c43] cursor-pointer transition-colors"
                   >
                     <Mic className="w-4 h-4" />
                     <span className="text-sm">{room}</span>

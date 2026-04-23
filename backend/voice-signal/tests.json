@@ -1,0 +1,39 @@
+{
+  "tests": [
+    {
+      "name": "Join room",
+      "method": "POST",
+      "path": "/",
+      "body": {"action": "join", "room": "general", "user_id": "test-user", "username": "Тест"},
+      "expectedStatus": 200,
+      "expectedBody": {"ok": true},
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Get participants",
+      "method": "GET",
+      "path": "/?action=participants&room=general",
+      "expectedStatus": 200,
+      "expectedBody": {"participants": []},
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Heartbeat",
+      "method": "POST",
+      "path": "/",
+      "body": {"action": "heartbeat", "room": "general", "user_id": "test-user"},
+      "expectedStatus": 200,
+      "expectedBody": {"ok": true},
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Leave room",
+      "method": "POST",
+      "path": "/",
+      "body": {"action": "leave", "room": "general", "user_id": "test-user"},
+      "expectedStatus": 200,
+      "expectedBody": {"ok": true},
+      "bodyMatcher": "partial"
+    }
+  ]
+}
