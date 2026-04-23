@@ -37,14 +37,30 @@ const USERS = [
   { name: "Алексей", status: "В сети", avatar: "А", color: "from-blue-500 to-purple-500" },
 ];
 
-const INITIAL_MESSAGES: Message[] = [
-  { id: 1, author: "Мария", avatar: "М", color: "from-purple-500 to-pink-500", text: "Привет всем! 👋", time: "12:00" },
-  { id: 2, author: "Иван", avatar: "И", color: "from-green-500 to-blue-500", text: "Привет! Как дела?", time: "12:01" },
-  { id: 3, author: "Алексей", avatar: "А", color: "from-blue-500 to-purple-500", text: "Отличный чат! Рад здесь быть 😊", time: "12:02" },
-];
+const INITIAL_MESSAGES: Record<string, Message[]> = {
+  "общий": [
+    { id: 1, author: "Мария", avatar: "М", color: "from-purple-500 to-pink-500", text: "Привет всем! 👋", time: "12:00" },
+    { id: 2, author: "Иван", avatar: "И", color: "from-green-500 to-blue-500", text: "Привет! Как дела?", time: "12:01" },
+    { id: 3, author: "Алексей", avatar: "А", color: "from-blue-500 to-purple-500", text: "Отличный чат! Рад здесь быть 😊", time: "12:02" },
+  ],
+  "новости": [
+    { id: 1, author: "Voxa", avatar: "V", color: "from-[#5865f2] to-[#7c3aed]", text: "📢 Добро пожаловать в канал новостей! Здесь публикуются все обновления.", time: "10:00" },
+    { id: 2, author: "Алексей", avatar: "А", color: "from-blue-500 to-purple-500", text: "Ждём новых обновлений! 🚀", time: "10:05" },
+  ],
+  "знакомства": [
+    { id: 1, author: "Voxa", avatar: "V", color: "from-[#5865f2] to-[#7c3aed]", text: "👋 Познакомься с новыми людьми! Расскажи о себе.", time: "09:00" },
+    { id: 2, author: "Мария", avatar: "М", color: "from-purple-500 to-pink-500", text: "Привет! Я Мария, люблю путешествия и фотографию 📸", time: "09:10" },
+    { id: 3, author: "Иван", avatar: "И", color: "from-green-500 to-blue-500", text: "Привет всем! Я Иван, программист из Москвы 💻", time: "09:15" },
+  ],
+  "поддержка": [
+    { id: 1, author: "Voxa", avatar: "V", color: "from-[#5865f2] to-[#7c3aed]", text: "🛠 Нужна помощь? Напиши сюда — мы всегда поможем!", time: "08:00" },
+    { id: 2, author: "Алексей", avatar: "А", color: "from-blue-500 to-purple-500", text: "Как изменить аватарку?", time: "08:30" },
+    { id: 3, author: "Voxa", avatar: "V", color: "from-[#5865f2] to-[#7c3aed]", text: "Зайди в настройки профиля и нажми на аватарку 👆", time: "08:31" },
+  ],
+};
 
 const Chat = () => {
-  const [messages, setMessages] = useState<Message[]>(INITIAL_MESSAGES);
+  const [channelMessages, setChannelMessages] = useState<Record<string, Message[]>>(INITIAL_MESSAGES);
   const [input, setInput] = useState("");
   const [activeChannel, setActiveChannel] = useState("общий");
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
@@ -55,15 +71,20 @@ const Chat = () => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
+  const messages = channelMessages[activeChannel] ?? [];
+
   const sendMessage = () => {
     const text = input.trim();
     if (!text) return;
     const now = new Date();
     const time = `${now.getHours()}:${String(now.getMinutes()).padStart(2, "0")}`;
-    setMessages((prev) => [
+    setChannelMessages((prev) => ({
       ...prev,
-      { id: Date.now(), author: "Вы", avatar: "В", color: "from-[#5865f2] to-[#7c3aed]", text, time },
-    ]);
+      [activeChannel]: [
+        ...(prev[activeChannel] ?? []),
+        { id: Date.now(), author: "Вы", avatar: "В", color: "from-[#5865f2] to-[#7c3aed]", text, time },
+      ],
+    }));
     setInput("");
   };
 
