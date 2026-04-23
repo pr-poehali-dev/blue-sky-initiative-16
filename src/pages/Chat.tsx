@@ -17,7 +17,7 @@ import {
   Paperclip,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 interface Message {
   id: number;
@@ -62,10 +62,11 @@ const INITIAL_MESSAGES: Record<string, Message[]> = {
 const Chat = () => {
   const [channelMessages, setChannelMessages] = useState<Record<string, Message[]>>(INITIAL_MESSAGES);
   const [input, setInput] = useState("");
-  const [activeChannel, setActiveChannel] = useState("общий");
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
+  const { channel } = useParams();
+  const activeChannel = CHANNELS.includes(channel ?? "") ? (channel ?? "общий") : "общий";
 
   const messages = channelMessages[activeChannel] ?? [];
 
@@ -144,7 +145,7 @@ const Chat = () => {
                 {CHANNELS.map((channel) => (
                   <div
                     key={channel}
-                    onClick={() => { setActiveChannel(channel); setMobileSidebarOpen(false); }}
+                    onClick={() => { navigate(`/chat/${channel}`); setMobileSidebarOpen(false); }}
                     className={`flex items-center gap-1.5 px-2 py-1.5 rounded cursor-pointer transition-colors ${
                       activeChannel === channel
                         ? "bg-[#393c43] text-white"
