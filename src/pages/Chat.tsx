@@ -82,7 +82,7 @@ const Chat = () => {
           <div className="w-8 h-8 bg-[#5865f2] rounded-full flex items-center justify-center">
             <MessageCircle className="w-4 h-4 text-white" />
           </div>
-          <span className="text-lg font-bold text-white">ЧатОн</span>
+          <span className="text-lg font-bold text-white">Voxa</span>
         </div>
         <Button
           variant="ghost"
@@ -113,7 +113,7 @@ const Chat = () => {
         {/* Боковая панель каналов */}
         <div className={`${mobileSidebarOpen ? "flex" : "hidden"} lg:flex w-60 bg-[#2f3136] flex-col flex-shrink-0`}>
           <div className="p-4 border-b border-[#202225] flex items-center justify-between">
-            <h2 className="text-white font-semibold text-base">ЧатОн</h2>
+            <h2 className="text-white font-semibold text-base">Voxa</h2>
             <Button
               variant="ghost"
               className="lg:hidden text-[#b9bbbe] hover:text-white hover:bg-[#40444b] p-1"

@@ -35,7 +35,7 @@ const Index = () => {
               <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
             </div>
             <div>
-              <h1 className="text-lg sm:text-xl font-bold text-white">ЧатОн</h1>
+              <h1 className="text-lg sm:text-xl font-bold text-white">Voxa</h1>
               <p className="text-xs text-[#b9bbbe] hidden sm:block">Общайся, созванивайся, переписывайся</p>
             </div>
           </div>
@@ -94,7 +94,7 @@ const Index = () => {
             className={`${mobileSidebarOpen ? "block" : "hidden"} lg:block w-full lg:w-60 bg-[#2f3136] flex flex-col`}
           >
             <div className="p-4 border-b border-[#202225] flex items-center justify-between">
-              <h2 className="text-white font-semibold text-base">ЧатОн</h2>
+              <h2 className="text-white font-semibold text-base">Voxa</h2>
               <Button
                 variant="ghost"
                 className="lg:hidden text-[#b9bbbe] hover:text-white hover:bg-[#40444b] p-1"
@@ -173,7 +173,7 @@ const Index = () => {
               <Hash className="w-5 h-5 text-[#8e9297]" />
               <span className="text-white font-semibold">общий</span>
               <div className="w-px h-6 bg-[#40444b] mx-2 hidden sm:block"></div>
-              <span className="text-[#8e9297] text-sm hidden sm:block">Добро пожаловать в ЧатОн — место для живого общения</span>
+              <span className="text-[#8e9297] text-sm hidden sm:block">Добро пожаловать в Voxa — место для живого общения</span>
               <div className="ml-auto flex items-center gap-2 sm:gap-4">
                 <Bell className="w-4 h-4 sm:w-5 sm:h-5 text-[#b9bbbe] cursor-pointer hover:text-[#dcddde]" />
                 <Users className="w-4 h-4 sm:w-5 sm:h-5 text-[#b9bbbe] cursor-pointer hover:text-[#dcddde]" />
