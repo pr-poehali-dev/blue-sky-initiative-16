@@ -67,11 +67,11 @@ const Chat = () => {
   const bottomRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
 
+  const messages = channelMessages[activeChannel] ?? [];
+
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
-
-  const messages = channelMessages[activeChannel] ?? [];
 
   const sendMessage = () => {
     const text = input.trim();
