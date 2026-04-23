@@ -123,7 +123,7 @@ const Chat = () => {
         </div>
 
         {/* Боковая панель каналов */}
-        <div className={`${mobileSidebarOpen ? "flex" : "hidden"} lg:flex w-60 bg-[#2f3136] flex-col flex-shrink-0`}>
+        <div className="flex w-36 sm:w-48 lg:w-60 bg-[#2f3136] flex-col flex-shrink-0">
           <div className="p-4 border-b border-[#202225] flex items-center justify-between">
             <h2 className="text-white font-semibold text-base">Voxa</h2>
             <Button
