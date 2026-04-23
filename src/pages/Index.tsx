@@ -72,21 +72,6 @@ const Index = () => {
 
       {/* Макет в стиле мессенджера */}
       <div className="flex min-h-screen">
-        {/* Боковая панель серверов */}
-        <div className="hidden lg:flex w-[72px] bg-[#202225] flex-col items-center py-3 gap-2">
-          <div className="w-12 h-12 bg-[#5865f2] rounded-2xl hover:rounded-xl transition-all duration-200 flex items-center justify-center cursor-pointer">
-            <MessageCircle className="w-6 h-6 text-white" />
-          </div>
-          <div className="w-8 h-[2px] bg-[#36393f] rounded-full"></div>
-          {["💬", "📞", "👥", "🔒"].map((emoji, i) => (
-            <div
-              key={i}
-              className="w-12 h-12 bg-[#36393f] rounded-3xl hover:rounded-xl transition-all duration-200 flex items-center justify-center cursor-pointer hover:bg-[#5865f2] text-xl"
-            >
-              {emoji}
-            </div>
-          ))}
-        </div>
 
         <div className="flex-1 flex flex-col lg:flex-row">
           {/* Боковая панель каналов/чатов */}
