@@ -94,6 +94,12 @@ const Chat = () => {
       </nav>
 
       <div className="flex flex-1 overflow-hidden">
+        {/* Боковая панель серверов */}
+        <div className="hidden lg:flex w-[72px] bg-[#202225] flex-col items-center py-3 gap-2 flex-shrink-0">
+          <div className="w-12 h-12 bg-[#5865f2] rounded-2xl flex items-center justify-center cursor-pointer">
+            <MessageCircle className="w-6 h-6 text-white" />
+          </div>
+        </div>
 
         {/* Боковая панель каналов */}
         <div className={`${mobileSidebarOpen ? "flex" : "hidden"} lg:flex w-60 bg-[#2f3136] flex-col flex-shrink-0`}>
